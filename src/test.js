@@ -18,17 +18,6 @@ describe("Get/Index",()=>{
     });
 });
 
-describe("Get/NewGames",()=>{
-
-    it("it should display newsfeed",(done)=>{
-        chai.request(server)
-            .get("/new_games")
-            .end((err,res)=>{
-                res.should.have.status(200);
-                done();
-            });
-    });
-});
 
 
 describe("Get/anyOtherPage",()=>{

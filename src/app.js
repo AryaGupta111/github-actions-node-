@@ -11,9 +11,7 @@ app.get('/', (req, res)=>{
    res.status(200).sendFile(path.resolve(__dirname,`./public/index.html`))
 });
 
-app.get('/new_games', (req, res)=>{
-   res.status(200).sendFile(path.resolve(__dirname,`./public/new_games.html`))
-});
+
 
 
 app.all('*',(req,res)=>{

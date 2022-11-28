@@ -20,6 +20,17 @@ jobs:
       - name: Run test
         run: npm test  
   
-  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps: 
+      - uses: actions/checkout@v3
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: "a76ec5d8-819a-4ae2-8446-7fcb3a146fcc"
+          heroku_app_name: "gta"
+          heroku_email: "aryamahajan1111@gmail.com"
+        env: 
+          PORT: 5000  
 
     

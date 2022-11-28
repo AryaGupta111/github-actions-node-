@@ -1,19 +1,37 @@
-name: NodeJS Github Action
+name: SE Devops
 
-  on: push
+on: push
 
-  jobs:
-   build:
-     runs-on: ubuntu-latest
+jobs: 
+  build:
+    runs-on: ubuntu-latest
 
-steps:
-- uses: actions/checkout@v3 # checkout the repository
-- name: Use Node
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use node
 
-- uses: actions/setup-node@v3
-  with:
-     node-version: 16
-    - name: Install dependencies
-    run: npm install
-    - name: Run test
-    run: npm test
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run test
+        run: npm test  
+  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps: 
+      - uses: actions/checkout@v3
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: "226d7c1b-a23f-44ad-8130-aae05a31375b"
+          heroku_app_name: "instanews"
+          heroku_email: "dhavalchheda03@gmail.com"
+        env: 
+          PORT: 5000  
+
+
+    

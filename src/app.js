@@ -8,15 +8,11 @@ const port=process.env.PORT;
 app.use(express.static('./src/public'));
 
 app.get('/', (req, res)=>{
-   res.status(200).sendFile(path.resolve(__dirname,`./public/landing_page.html`))
+   res.status(200).sendFile(path.resolve(__dirname,`./public/index.html`))
 });
 
-app.get('/newsfeed', (req, res)=>{
-   res.status(200).sendFile(path.resolve(__dirname,`./public/newsfeed.html`))
-});
-
-app.get('/searchnews', (req, res)=>{
-   res.status(200).sendFile(path.resolve(__dirname,`./public/search.html`))
+app.get('/new_games', (req, res)=>{
+   res.status(200).sendFile(path.resolve(__dirname,`./public/new_games.html`))
 });
 
 app.all('*',(req,res)=>{

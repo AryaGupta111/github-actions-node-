@@ -6,7 +6,7 @@ const { listeners } = require("./app");
 chai.should();
 chai.use(chaiHttp);
 
-describe("Get/LandingPage",()=>{
+describe("Get/Index",()=>{
 
     it("it should display landing page",(done)=>{
         chai.request(server)
@@ -18,11 +18,11 @@ describe("Get/LandingPage",()=>{
     });
 });
 
-describe("Get/Newsfeed",()=>{
+describe("Get/NewGames",()=>{
 
     it("it should display newsfeed",(done)=>{
         chai.request(server)
-            .get("/newsfeed")
+            .get("/new_games")
             .end((err,res)=>{
                 res.should.have.status(200);
                 done();
@@ -30,17 +30,6 @@ describe("Get/Newsfeed",()=>{
     });
 });
 
-describe("Get/SearchNewsPage",()=>{
-
-    it("it should display search news page",(done)=>{
-        chai.request(server)
-            .get("/searchnews")
-            .end((err,res)=>{
-                res.should.have.status(200);
-                done();
-            });
-    });
-});
 
 describe("Get/anyOtherPage",()=>{
 

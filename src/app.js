@@ -15,6 +15,7 @@ app.get('/new_games', (req, res)=>{
    res.status(200).sendFile(path.resolve(__dirname,`./public/new_games.html`))
 });
 
+
 app.all('*',(req,res)=>{
    res.status(404).send("resource not found");
 })
